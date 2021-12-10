@@ -4,6 +4,7 @@
 <div class="container mt-4">
 <div class="card">
   <h1 class="card-header">Show articles</h1>
+  <p class="card-header font-italic">by <%= @article.user.username if @article.user %></p>
   <div class="card-body">
   <p><strong>Title: </strong><%= @article.title %> </p>
   <p><strong>Description: </strong><%= @article.description %> </p>
