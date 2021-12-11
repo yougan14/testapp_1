@@ -19,5 +19,12 @@
     text-align: center;
 }
 #page-content{
-    background-color: lightgray;
+    background: linear-gradient(to right, #ff99ff 0%, #33cccc 100%);
+    
+}
+#jumbo1{
+    background: linear-gradient(to top, #ccffff 0%, #ff66ff 100%);
+}
+#jumbo2{
+    background: linear-gradient(to top left, #99ccff 0%, #3333ff 100%);
 }

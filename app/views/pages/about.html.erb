@@ -1,2 +1,14 @@
-<%= link_to 'Articles listing', articles_path %> |
-<%= link_to 'Home page', root_path %> 
+
+
+<div class="container" id="home-container">
+<div class="jumbotron" id="jumbo1">
+  <h1 class="display-4">Hello, world!</h1>
+  <p class="lead">Welcome to articles about page.</p>
+  <hr class="my-4">
+  <p>Articles page which has the title, description, editing, deleting and creating new articles.</p>
+  <p style="color:green;">Click the button below!</p>
+ <%= link_to "Sign up!", signup_path, class: "btn btn-success btn-lg" %><br><br>
+ <%= link_to 'Articles listing', articles_path, class: "btn btn-outline-primary" %> |
+<%= link_to 'Home page', root_path, class:"btn btn-outline-info" %> 
+</div>
+</div>
