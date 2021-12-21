@@ -18,12 +18,26 @@
     margin-top: 40px;
     text-align: center;
 }
-#page-content{
-    background: linear-gradient(to right, #ff99ff 0%, #33cccc 100%); 
-}
+
 #jumbo1{
     background: linear-gradient(to top, #ccffff 0%, #ff66ff 100%);
 }
 #jumbo2{
-    background: linear-gradient(to top left, #99ccff 0%, #3333ff 100%);
+    background: linear-gradient(to right, #99ccff 0%, #ccffcc 100%);
+}
+html,
+body {
+  height: 100%;
+}
+
+#page-content1 {
+  flex: 1 0 auto;
+}
+
+body {
+  background: linear-gradient(to right, #ffccff 0%, #ccccff 100%);
+
+}
+#heading{
+  color:azure;
 }
