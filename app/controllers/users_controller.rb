@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   def show
     @articles = @user.articles.all
-
   end
 
   def index
@@ -24,7 +23,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Your account information was successfully updated"
       redirect_to articles_path
     else
-      render 'edit'
+      render "edit"
     end
   end
 
@@ -35,7 +34,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Welcome to the Articles #{@user.username}, you have successfully signed up"
       redirect_to articles_path
     else
-      render 'new'
+      render "new"
     end
   end
 
@@ -47,6 +46,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:username, :email, :password)
   end
@@ -60,7 +60,5 @@ class UsersController < ApplicationController
       flash[:alert] = "You can only edit or delete your own account"
       redirect_to @user
     end
-
   end
-
 end

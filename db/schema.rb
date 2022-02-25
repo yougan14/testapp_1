@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_16_094028) do
+ActiveRecord::Schema.define(version: 2021_12_27_075158) do
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.integer "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
 
   create_table "article_categories", force: :cascade do |t|
     t.integer "article_id"
@@ -33,6 +61,34 @@ ActiveRecord::Schema.define(version: 2021_12_16_094028) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "personal_details", force: :cascade do |t|
+    t.string "name"
+    t.date "date_of_birth"
+    t.string "gender"
+    t.string "blood_group"
+    t.string "email"
+    t.integer "mobile_number"
+    t.text "address"
+    t.string "state"
+    t.string "country"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "personalinfos", force: :cascade do |t|
+    t.string "name"
+    t.string "date_of_birth"
+    t.string "gender"
+    t.string "blood_group"
+    t.string "email"
+    t.string "mobile_number"
+    t.string "address"
+    t.string "state"
+    t.string "country"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -42,4 +98,6 @@ ActiveRecord::Schema.define(version: 2021_12_16_094028) do
     t.boolean "admin", default: false
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
 end

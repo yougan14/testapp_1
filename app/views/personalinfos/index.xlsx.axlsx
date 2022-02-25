@@ -1,0 +1,20 @@
+
+
+wb = xlsx_package.workbook
+wb.styles do |style|
+  highlight_cell = style.add_style(bg_color: "EFC376")
+
+  wb.add_worksheet(name: "Personalinfos") do |sheet|
+    @personalinfos.each do |personalinfo|
+     sheet.add_row [personalinfo.name, personalinfo.address, personalinfo.email, personalinfo.mobile_number,
+     personalinfo.gender, personalinfo.date_of_birth, personalinfo.blood_group, personalinfo.state, personalinfo.created_at, personalinfo.updated_at], style: [nil, highlight_cell]
+     highlight_cell = style.add_style(bg_color: "EFC376",
+                                   border: Axlsx::STYLE_THIN_BORDER,
+                                   alignment: { horizontal: :center })
+    end
+   
+  end
+end
+
+
+

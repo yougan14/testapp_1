@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.0'
+ruby '2.7.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
@@ -24,8 +24,14 @@ gem 'jquery-rails'
 # Use Active Model has_secure_password
  gem 'bcrypt', '~> 3.1.7'
  gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+ gem 'greensock-rails'
+ 
+ gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.1.1'
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+ gem 'image_processing', '~> 1.2'
+ # gem 'exportable'
+ gem 'axlsx_rails'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -56,3 +62,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'rufo'
