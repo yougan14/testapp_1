@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
       flash[:notice] = "Category was successfully created"
       redirect_to @category
     else
-      render 'new'
+      render "new"
     end
   end
 
@@ -25,19 +25,25 @@ class CategoriesController < ApplicationController
       flash[:notice] = "Category name updated successfully"
       redirect_to @category
     else
-      render 'edit'
+      render "edit"
     end
   end
 
   def index
     @categories = Category.paginate(page: params[:page], per_page: 50)
+    respond_to do |format|
+      format.html
+      format.xlsx {
+        response.headers["Content-Disposition"] = 'attachment; filename="all_categories.xlsx"'
+      }
+    end
   end
 
   def show
     @category = Category.find(params[:id])
     @articles = @category.articles.paginate(page: params[:page], per_page: 50)
   end
-  
+
   private
 
   def category_params
