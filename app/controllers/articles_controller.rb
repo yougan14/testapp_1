@@ -14,6 +14,8 @@ class ArticlesController < ApplicationController
         response.headers["Content-Disposition"] = 'attachment; filename="all_articles.xlsx"'
       }
     end
+    # @articles = Article.search(params[:term])
+    # render json: @articles.map(&:title).uniq
   end
 
   def new
@@ -26,11 +28,14 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.user = current_user
-    if @article.save
-      flash[:notice] = "Article was created successfully."
-      redirect_to @article
-    else
-      render "new"
+    respond_to do |format|
+      if @article.save
+        format.html { redirect_to @article, notice: "Article was created successfully." }
+        format.js
+      else
+        format.html { render "new" }
+        format.js
+      end
     end
   end
 
@@ -55,7 +60,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :description, category_ids: [])
+    params.require(:article).permit(:title, :description, :file, category_ids: [])
   end
 
   def require_same_user

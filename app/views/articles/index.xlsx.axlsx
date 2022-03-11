@@ -8,8 +8,6 @@ wb.styles do |style|
      highlight_cell = style.add_style(bg_color: "EFC376",
                                    border: Axlsx::STYLE_THIN_BORDER,
                                    alignment: { horizontal: :center })
-    end
-   
-                                   
+    end                                
   end
 end

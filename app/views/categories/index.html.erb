@@ -1,7 +1,9 @@
 <h1 class="text-center mt-4">Categories</h1>
 <div class="container">
 <div id="xldown">
-<%= link_to 'Download as .xlsx', categories_path(format: :xlsx) %>
+<% if logged_in? %>
+<%= link_to "Download as .xlsx", categories_path(format: :xlsx) %>
+<% end %>
 </div>
   <% @categories.each do |category| %>
     <div class="row justify-content-md-center">

@@ -1,7 +1,8 @@
-
 <h1 class="text-center mt-4">Listing all articles</h1>
 <div id="xldown">
-<%= link_to 'Download as .xlsx', articles_path(format: :xlsx) %>
+<% if logged_in? %>
+<%= link_to "Download as .xlsx", articles_path(format: :xlsx) %>
+<% end %>
 </div>
 
-<%= render 'article' %>
+<%= render "article" %>
